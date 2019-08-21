@@ -22,7 +22,7 @@ const mongooseOptions = {
 };
 
 // mongodb://username:password@localhost:27017/users
-const connection = mongoose.connect(`mongodb://${DB_URL}:27017/${DB_NAME}`, mongooseOptions);
+const connection = mongoose.connect(`${DB_URL}/${DB_NAME}`, mongooseOptions);
 
 connection
     .then(() => {
