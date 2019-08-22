@@ -24,4 +24,31 @@ export class Staff {
 
         return hash;
     }
+
+    async create() {
+        console.log('models');
+        const { name, email, phone, role } = this.data;
+        const [first, last] = name.split(' ');
+        const emails = [{ email, primary: true }];
+        const phones = [{ phone, primary: true }];
+        const data = {
+            name: { first, last },
+            emails,
+            phones,
+            password: 123,
+            disabled: false,
+            created: "dfdsfs",
+            modified: "fsdfdsf",
+            role
+        }
+        try {
+            const user = await staff.create(data);
+            await user.save();
+            console.log(user);
+
+            return user.toObject();
+        } catch ({ name, message }) {
+            console.error(`${name}: ${message}`);
+        }
+    }
 }

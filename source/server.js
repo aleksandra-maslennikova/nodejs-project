@@ -60,6 +60,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/auth', domains.auth);
+app.use('/api/staff', domains.staff);
 
 app.use('*', (req, res, next) => {
     const error = new NotFoundError(

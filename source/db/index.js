@@ -1,6 +1,7 @@
 // Core
 import mongoose from 'mongoose';
 import dg from 'debug';
+import  hashPlugin from '../plugins/addHash';
 
 // Instruments
 import { getDbName, getDbUrl } from '../helpers';
@@ -21,8 +22,10 @@ const mongooseOptions = {
     useCreateIndex:    true,
 };
 
-// mongodb://username:password@localhost:27017/users
+
+mongoose.plugin(hashPlugin, { index: true, version: 'v1' });
 const connection = mongoose.connect(`${DB_URL}/${DB_NAME}`, mongooseOptions);
+
 
 connection
     .then(() => {

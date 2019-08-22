@@ -12,4 +12,11 @@ export class Staff {
 
         return data;
     }
+
+    async create() {
+        console.log('controller');
+        const { hash } = await this.models.staff.create();
+
+        return hash;
+    }
 }
