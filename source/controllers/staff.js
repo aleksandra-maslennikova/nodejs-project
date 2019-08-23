@@ -13,10 +13,9 @@ export class Staff {
         return data;
     }
 
-    async create() {
-        console.log('controller');
-        const { hash } = await this.models.staff.create();
+    async createUser() {
+        const user = await this.models.staff.createUser();
 
-        return hash;
+        return user;
     }
 }

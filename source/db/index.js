@@ -1,7 +1,7 @@
 // Core
 import mongoose from 'mongoose';
 import dg from 'debug';
-import  hashPlugin from '../plugins/addHash';
+import hashPlugin from '../plugins/addHash';
 
 // Instruments
 import { getDbName, getDbUrl } from '../helpers';
@@ -9,6 +9,10 @@ import { getDbName, getDbUrl } from '../helpers';
 const debug = dg('db');
 const DB_NAME = getDbName();
 const DB_URL = getDbUrl();
+
+
+
+mongoose.plugin(hashPlugin, { index: true });
 
 const mongooseOptions = {
     promiseLibrary:    global.Promise,
@@ -23,7 +27,6 @@ const mongooseOptions = {
 };
 
 
-mongoose.plugin(hashPlugin, { index: true, version: 'v1' });
 const connection = mongoose.connect(`${DB_URL}/${DB_NAME}`, mongooseOptions);
 
 

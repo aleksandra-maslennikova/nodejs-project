@@ -15,8 +15,11 @@ export const createStaff = {
         role: {
             type: 'string',
         },
+        password: {
+            type: 'string'
+        }
 
     },
-    required:             [ 'name', 'email', 'phone', 'role' ],
+    required:             [ 'name', 'email', 'phone', 'role', 'password' ],
     additionalProperties: false,
 };

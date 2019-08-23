@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 
 // Document shape
 const schema = new mongoose.Schema({
-    hash: String,
     name: {
         first: String,
         last:  String,
